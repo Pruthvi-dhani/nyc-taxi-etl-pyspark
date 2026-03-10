@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Test & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# macOS
+.DS_Store
+
+# Spark local warehouse / derby
+derby.log
+metastore_db/
+spark-warehouse/
+
+# EMR artefacts
+*.jar
+
+# Data — never commit raw/sample data larger than a few KB
+data/raw/
+data/sample/*.parquet
+
+# Notebooks checkpoints
+notebooks/.ipynb_checkpoints/
+

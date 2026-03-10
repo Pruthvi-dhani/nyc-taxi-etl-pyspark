@@ -1,18 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4ec6da3-b3c6-4536-a9d2-3084679fd9d7" name="Changes" comment="" />
+    <list default="true" id="c4ec6da3-b3c6-4536-a9d2-3084679fd9d7" name="Changes" comment="initial project commit">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DESIGN.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conf/emr_serverless_job.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conf/spark_conf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobs/analytics_job.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobs/ingest_job.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobs/transform_job.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/bootstrap.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/set_java_env.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/submit_job.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/analytics/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/analytics/demand_analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/analytics/fare_analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/analytics/geo_analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/analytics/time_series.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/analytics/trip_patterns.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ingestion/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ingestion/reader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ingestion/schema.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transformation/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transformation/bronze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transformation/gold.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transformation/silver.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/spark_session.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/integration/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/integration/test_pipeline_e2e.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit/test_bronze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit/test_gold.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit/test_silver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/j.pruthvichowdary/Desktop/workflow/nyc-taxi-etl-pyspark" value="3AkEsOERTKhCYQBCger7M16sjYA" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="chat-panel" value="Claude Sonnet 4.6" />
+      <entry key="agent-panel" value="Claude Sonnet 4.6" />
+    </selectedModels>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="3AkEsOERTKhCYQBCger7M16sjYA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -21,10 +81,43 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nyc-taxi-etl-pyspark" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -40,6 +133,27 @@
       <option name="presentableId" value="Default" />
       <updated>1773128374005</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial project commit">
+      <option name="closed" value="true" />
+      <created>1773128458952</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773128458952</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial project commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial project commit" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
