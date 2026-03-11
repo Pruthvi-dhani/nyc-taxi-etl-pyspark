@@ -10,11 +10,11 @@ import os
 # ---------------------------------------------------------------------------
 # S3 bucket layout
 # ---------------------------------------------------------------------------
-RAW_BUCKET: str = os.getenv("RAW_BUCKET", "nyc-tlc")
+RAW_BUCKET: str = os.getenv("RAW_BUCKET", "nyc-taxi-etl-spark-raw")
 PIPELINE_BUCKET: str = os.getenv("PIPELINE_BUCKET", "my-nyc-taxi-bucket")
 
-# TLC public data prefix  (s3://nyc-tlc/trip data/)
-TLC_S3_PREFIX: str = f"s3://{RAW_BUCKET}/trip data"
+# TLC public data prefix  (s3://nyc-taxi-etl-spark-raw/raw/<trip_type>/)
+TLC_S3_PREFIX: str = f"s3://{RAW_BUCKET}/raw"
 
 # Medallion layer prefixes on the pipeline bucket
 BRONZE_PREFIX: str = f"s3://{PIPELINE_BUCKET}/bronze"
@@ -34,7 +34,7 @@ DEFAULT_START_MONTH: int = int(os.getenv("START_MONTH", "1"))
 DEFAULT_END_MONTH: int = int(os.getenv("END_MONTH", "12"))
 
 # Supported trip types
-TRIP_TYPES: list[str] = ["yellow", "green", "fhv"]
+TRIP_TYPES: list[str] = ["yellow", "green", "fhv", "fhvhv"]
 
 # ---------------------------------------------------------------------------
 # AWS / EMR settings

@@ -27,13 +27,19 @@ def _build_s3_paths(
     start_month: int = 1,
     end_month: int = 12,
 ) -> list[str]:
-    """Return a list of S3 URIs covering the requested date range."""
+    """Return a list of S3 URIs covering the requested date range.
+
+    Layout: s3://<RAW_BUCKET>/raw/<trip_type>/<trip_type>_tripdata_YYYY-MM.parquet
+    """
     paths: list[str] = []
     for year in range(start_year, end_year + 1):
         m_start = start_month if year == start_year else 1
         m_end = end_month if year == end_year else 12
         for month in range(m_start, m_end + 1):
-            path = f"{config.TLC_S3_PREFIX}/{trip_type}_tripdata_{year}-{month:02d}.parquet"
+            path = (
+                f"{config.TLC_S3_PREFIX}/{trip_type}/"
+                f"{trip_type}_tripdata_{year}-{month:02d}.parquet"
+            )
             paths.append(path)
     return paths
 
