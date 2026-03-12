@@ -1,11 +1,8 @@
 """
-s3_data_copy.py
-===============
 Downloads NYC TLC trip-data Parquet files for a given year from the TLC
-CloudFront CDN and uploads them directly to an S3 bucket.
+CloudFront CDN and streams them to S3 bucket specified.
 
-Designed to run in AWS CloudShell — streams each file directly from the
-CDN into S3 using boto3, so no local disk space is consumed.
+Requires AWS credentials to be setup before running the script
 
 Usage
 -----
@@ -19,6 +16,8 @@ S3 layout produced
     s3://nyc-taxi-etl-spark-raw/raw/green/green_tripdata_YYYY-MM.parquet
     s3://nyc-taxi-etl-spark-raw/raw/fhv/fhv_tripdata_YYYY-MM.parquet
     s3://nyc-taxi-etl-spark-raw/raw/fhvhv/fhvhv_tripdata_YYYY-MM.parquet
+
+    these are the 4 types of datasets present in nyc tlc data
 """
 
 from __future__ import annotations
@@ -59,7 +58,7 @@ log = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-def _s3_key(trip_type: str, filename: str) -> str:
+def _s3_full_path(trip_type: str, filename: str) -> str:
     return f"{S3_PREFIX}/{trip_type}/{filename}"
 
 
@@ -120,7 +119,9 @@ def copy_year(year: int, trip_types: list[str]) -> None:
     log.info("Starting NYC TLC data copy  →  year=%d  bucket=s3://%s/%s/", year, BUCKET, S3_PREFIX)
     log.info("Trip types: %s", ", ".join(trip_types))
 
-    total = skipped = failed = 0
+    total = 0
+    skipped = 0
+    failed = 0
 
     for trip_type in trip_types:
         for month in range(1, 13):
@@ -134,11 +135,11 @@ def copy_year(year: int, trip_types: list[str]) -> None:
                 continue
 
             log.info("Copying  %s", url)
-            log.info("      →  s3://%s/%s", BUCKET, key)
+            log.info("      to  s3://%s/%s", BUCKET, key)
 
             try:
                 _stream_url_to_s3(s3, url, key)
-                log.info("✓  Done: %s", filename)
+                log.info("Done: %s", filename)
                 total += 1
             except urllib.error.HTTPError as exc:
                 log.warning("FAILED: %s — HTTP %s (%s)", filename, exc.code, exc.reason)

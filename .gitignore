@@ -44,4 +44,3 @@ data/sample/*.parquet
 
 # Notebooks checkpoints
 notebooks/.ipynb_checkpoints/
-
