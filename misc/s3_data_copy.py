@@ -6,9 +6,8 @@ Requires AWS credentials to be setup before running the script
 
 Usage
 -----
-    python s3_data_copy.py              # defaults to year=2025
-    python s3_data_copy.py --year 2024
-    python s3_data_copy.py --year 2025 --trip-types yellow green
+    python s3_data_copy.py --year 2025 --bucket nyc-taxi-etl-spark-raw
+    python s3_data_copy.py --year 2024 --bucket nyc-taxi-etl-spark-raw --s3-prefix raw
 
 S3 layout produced
 ------------------
@@ -109,17 +108,17 @@ def _stream_url_to_s3(s3_client, bucket: str, url: str, key: str) -> None:
 # ---------------------------------------------------------------------------
 # Core logic
 # ---------------------------------------------------------------------------
-def copy_year(year: int, trip_types: list[str], bucket: str, s3_prefix: str) -> None:
+def copy_year(year: int, bucket: str, s3_prefix: str) -> None:
     s3 = boto3.client("s3")
 
     log.info("Starting NYC TLC data copy  →  year=%d  bucket=s3://%s/%s/", year, bucket, s3_prefix)
-    log.info("Trip types: %s", ", ".join(trip_types))
+    log.info("Trip types: %s", ", ".join(ALL_TRIP_TYPES))
 
     total = 0
     skipped = 0
     failed = 0
 
-    for trip_type in trip_types:
+    for trip_type in ALL_TRIP_TYPES:
         for month in range(1, 13):
             filename = f"{trip_type}_tripdata_{year}-{month:02d}.parquet"
             url = f"{BASE_URL}/{filename}"
@@ -189,20 +188,12 @@ def _parse_args() -> argparse.Namespace:
         help="Key prefix inside the bucket (default: 'raw'). Overrides TLC_S3_PREFIX env var.",
     )
 
-    parser.add_argument(
-        "--trip-types",
-        nargs="+",
-        choices=ALL_TRIP_TYPES,
-        default=ALL_TRIP_TYPES,
-        help=f"Trip types to copy. Choices: {ALL_TRIP_TYPES}. Default: all.",
-    )
-
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = _parse_args()
 
-    copy_year(year=args.year, trip_types=args.trip_types, bucket=args.bucket, s3_prefix=args.s3_prefix)
+    copy_year(year=args.year, bucket=args.bucket, s3_prefix=args.s3_prefix)
 
 
